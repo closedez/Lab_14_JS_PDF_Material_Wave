@@ -1,4 +1,6 @@
-/* Editable animation */
+/* =========================
+   Editable animation
+========================= */
 
 const editables = document.querySelectorAll('.editable');
 
@@ -11,7 +13,7 @@ editables.forEach(el => {
             { transform: 'scale(1.02)' },
             { transform: 'scale(1)' }
         ], {
-            duration: 300
+            duration: 250
         });
 
         saveData();
@@ -20,92 +22,72 @@ editables.forEach(el => {
 
 });
 
-/* Ripple effect */
-
-function rippleEffect(e) {
-
-    const button = e.currentTarget;
-
-    const circle = document.createElement('span');
-
-    const diameter = Math.max(
-        button.clientWidth,
-        button.clientHeight
-    );
-
-    const radius = diameter / 2;
-
-    circle.style.width = circle.style.height =
-        `${diameter}px`;
-
-    circle.style.left =
-        `${e.clientX - button.offsetLeft - radius}px`;
-
-    circle.style.top =
-        `${e.clientY - button.offsetTop - radius}px`;
-
-    circle.classList.add('ripple');
-
-    const ripple = button.getElementsByClassName('ripple')[0];
-
-    if (ripple) {
-        ripple.remove();
-    }
-
-    button.appendChild(circle);
-
-}
-
-document.querySelectorAll('.download-btn, .skill')
-.forEach(el => {
-    el.addEventListener('click', rippleEffect);
-});
-
-/* Save data */
+/* =========================
+   Save data
+========================= */
 
 function saveData() {
 
+    const resumeHTML =
+        document.getElementById('resume').innerHTML;
+
     localStorage.setItem(
-        'resumeData',
-        document.getElementById('resume').innerHTML
+        'resumeHTML',
+        resumeHTML
     );
 
 }
 
-/* Load data */
+/* =========================
+   Load data
+========================= */
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const saved = localStorage.getItem('resumeData');
+    const savedHTML =
+        localStorage.getItem('resumeHTML');
 
-    if (saved) {
-        document.getElementById('resume').innerHTML = saved;
+    if (savedHTML) {
+
+        document.getElementById('resume').innerHTML =
+            savedHTML;
+
     }
 
 });
 
-/* PDF */
+/* =========================
+   PDF download
+========================= */
 
-document.getElementById('downloadBtn')
+document
+.getElementById('downloadBtn')
 .addEventListener('click', () => {
 
-    const element = document.getElementById('resume');
+    const element =
+        document.getElementById('resume');
 
     const opt = {
+
         margin: 0,
+
         filename: 'resume.pdf',
+
         image: {
             type: 'jpeg',
             quality: 1
         },
+
         html2canvas: {
             scale: 2
         },
+
         jsPDF: {
             unit: 'mm',
             format: 'a4',
             orientation: 'portrait'
         }
+
     };
 
     html2pdf()
