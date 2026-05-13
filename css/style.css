@@ -5,18 +5,18 @@
 }
 
 body {
-    font-family: 'Segoe UI', 'Roboto', 'Inter', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 40px 20px;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Кнопка скачивания */
+/* Кнопка */
 .toolbar {
     text-align: right;
     margin-bottom: 24px;
@@ -24,7 +24,7 @@ body {
 
 .download-btn {
     background: white;
-    color: #1a1a2e;
+    color: #667eea;
     border: none;
     padding: 12px 28px;
     font-size: 16px;
@@ -32,112 +32,110 @@ body {
     border-radius: 40px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    position: relative;
     overflow: hidden;
+    position: relative;
 }
 
 .download-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     background: #f0f0ff;
 }
 
 /* Карточка резюме */
 .resume {
     background: white;
-    border-radius: 32px;
+    border-radius: 28px;
     padding: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
-    transition: all 0.3s;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
 
 /* Шапка */
 .header {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid #f0f0f0;
-    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 3px solid #667eea;
 }
 
-.avatar-placeholder {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #1a1a2e, #0f3460);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    box-shadow: 0 10px 25px -5px rgba(26, 26, 46, 0.3);
-}
-
-.header-info {
-    flex: 1;
-}
-
-.header-info h1 {
-    font-size: 36px;
+.header h1 {
+    font-size: 42px;
     color: #1a1a2e;
     margin-bottom: 8px;
 }
 
 .job-title {
-    font-size: 18px;
-    color: #0f3460;
+    font-size: 20px;
+    color: #667eea;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #555;
+    font-size: 14px;
 }
 
 /* Секции */
 .section {
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .section-title {
-    font-size: 22px;
-    color: #1a1a2e;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-left: 4px solid #0f3460;
-    padding-left: 16px;
-}
-
-.section-icon {
     font-size: 24px;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 5px solid #667eea;
 }
 
-.section-content {
+.section-text {
     color: #444;
     line-height: 1.6;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
-/* Образование */
-.education {
-    margin-left: 30px;
+/* Сетка навыков */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-left: 20px;
 }
 
-.edu-item {
-    padding: 16px;
-    background: #f8f9ff;
-    border-radius: 20px;
-    transition: all 0.2s;
-}
-
-.edu-item:hover {
+.skill {
     background: #f0f2ff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #667eea;
+    transition: 0.2s;
+    display: inline-block;
 }
 
-.edu-header {
+.skill:hover {
+    background: #e0e4ff;
+    transform: scale(1.02);
+}
+
+/* Опыт работы */
+.job {
+    margin-left: 20px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #fafafc;
+    border-radius: 16px;
+}
+
+.job-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,93 +143,92 @@ body {
     margin-bottom: 8px;
 }
 
-.edu-header strong {
+.job-header strong {
     font-size: 18px;
     color: #1a1a2e;
 }
 
-.edu-date {
-    color: #0f3460;
+.job-date {
+    color: #667eea;
     font-weight: 500;
-    font-size: 14px;
 }
 
-.edu-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #0f3460;
-    margin-bottom: 4px;
-}
-
-.edu-faculty {
-    color: #666;
-    font-size: 14px;
-}
-
-/* Опыт */
-.experience {
-    margin-left: 30px;
-}
-
-.exp-item {
-    padding: 16px;
-    background: #f8f9ff;
-    border-radius: 20px;
-    transition: all 0.2s;
-}
-
-.exp-item:hover {
-    background: #f0f2ff;
-}
-
-.exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.job-position {
+    color: #777;
     margin-bottom: 12px;
-}
-
-.exp-header strong {
-    font-size: 18px;
-    color: #1a1a2e;
-}
-
-.exp-date {
-    color: #0f3460;
-    font-weight: 500;
     font-size: 14px;
 }
 
-.exp-item ul {
+.job ul {
     margin-left: 20px;
     color: #555;
 }
 
-.exp-item li {
-    margin: 8px 0;
+.job li {
+    margin: 5px 0;
     line-height: 1.5;
 }
 
-/* Дополнительно */
-.additional {
-    margin-left: 30px;
-}
-
-.additional ul {
+/* Образование */
+.education {
     margin-left: 20px;
-    color: #555;
+    padding: 12px 15px;
+    background: #fafafc;
+    border-radius: 16px;
 }
 
-.additional li {
-    margin: 10px 0;
-    line-height: 1.5;
+.education strong {
+    display: block;
+    font-size: 16px;
+    color: #1a1a2e;
+    margin-bottom: 5px;
 }
+
+.education span {
+    color: #666;
+}
+
+/* Языки */
+.languages {
+    margin-left: 20px;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.lang-name {
+    width: 90px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.lang-bar {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lang-level {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+.level-100 { width: 100%; }
+.level-85 { width: 85%; }
+.level-70 { width: 70%; }
 
 /* Редактируемые элементы */
 .editable {
-    transition: all 0.2s ease;
-    border-radius: 8px;
+    transition: all 0.2s;
+    border-radius: 6px;
     padding: 4px 8px;
     margin: -4px -8px;
     cursor: text;
@@ -239,22 +236,22 @@ body {
 
 .editable:focus {
     background: #f0f2ff;
-    outline: 2px solid #0f3460;
+    outline: 2px solid #667eea;
     transform: scale(1.01);
 }
 
 .edit-animation {
-    animation: highlight 0.3s ease-out !important;
+    animation: pop 0.3s ease-out !important;
     background: #e8eaff !important;
 }
 
-@keyframes highlight {
-    0% { transform: scale(1); background: transparent; }
-    50% { transform: scale(1.01); background: #dddfff; }
-    100% { transform: scale(1); background: #f0f2ff; }
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); background: #dddfff; }
+    100% { transform: scale(1); }
 }
 
-/* Ripple эффект */
+/* Ripple */
 .ripple, .download-btn {
     position: relative;
     overflow: hidden;
@@ -263,7 +260,7 @@ body {
 .ripple-wave {
     position: absolute;
     border-radius: 50%;
-    background: rgba(26, 26, 46, 0.4);
+    background: rgba(102, 126, 234, 0.4);
     transform: scale(0);
     animation: rippleAnim 0.5s linear;
     pointer-events: none;
@@ -282,20 +279,21 @@ body {
         padding: 20px;
     }
     
-    .header {
-        flex-direction: column;
-        text-align: center;
+    .header h1 {
+        font-size: 30px;
     }
     
     .section-title {
-        font-size: 18px;
+        font-size: 20px;
     }
     
-    .section-content, .education, .experience, .additional {
-        margin-left: 15px;
+    .skills-grid, .job, .education, .languages {
+        margin-left: 10px;
     }
     
-    .header-info h1 {
-        font-size: 28px;
+    .contacts {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
     }
 }

@@ -3,90 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме | Кирилл Качар</title>
+    <title>Резюме | Иван Иванов</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="toolbar">
-            <button id="downloadBtn" class="download-btn">
-                📄 Скачать PDF
-            </button>
+            <button id="downloadBtn" class="download-btn">📄 Скачать PDF</button>
         </div>
 
         <div class="resume" id="resume">
             <!-- Шапка -->
             <div class="header">
-                <div class="avatar">
-                    <div class="avatar-placeholder">👨‍💻</div>
-                </div>
-                <div class="header-info">
-                    <h1 contenteditable="true" class="editable" id="name">Кирилл Качар</h1>
-                    <p contenteditable="true" class="editable job-title">Очень наглядный frontend-разработчик</p>
+                <h1 contenteditable="true" class="editable">Иван Иванов</h1>
+                <p contenteditable="true" class="editable job-title">Frontend-разработчик</p>
+                <div class="contacts">
+                    <span>📧 ivan@example.com</span>
+                    <span>📱 +7 (999) 123-45-67</span>
+                    <span>📍 Москва</span>
+                    <span>💻 GitHub: github.com/ivanov</span>
                 </div>
             </div>
 
             <!-- О себе -->
             <div class="section">
-                <h2 contenteditable="true" class="editable section-title">
-                    <span class="section-icon">👋</span> О себе
-                </h2>
-                <p contenteditable="true" class="editable section-content">
-                    Обучаюсь на лучшем направлении в мире, да что там в мире, в России!!! 
-                    Осваиваю основы программирования и алгоритмов. Учусь создавать сайты на HTML, 
-                    CSS и JavaScript. Интересуюсь веб-разработкой, стараюсь улучшать свои навыки 
-                    и делать проекты аккуратно. Имею целых 11 классов образования в школе!!!
+                <h2 contenteditable="true" class="editable section-title">📌 О себе</h2>
+                <p contenteditable="true" class="editable section-text">
+                    Опытный frontend-разработчик с 5+ годами коммерческого опыта. 
+                    Специализируюсь на React, TypeScript и создании быстрых, адаптивных веб-приложений. 
+                    Люблю чистый код и решать сложные задачи.
                 </p>
+            </div>
+
+            <!-- Навыки -->
+            <div class="section">
+                <h2 contenteditable="true" class="editable section-title">🛠 Навыки</h2>
+                <div class="skills-grid">
+                    <span contenteditable="true" class="editable skill">JavaScript / TypeScript</span>
+                    <span contenteditable="true" class="editable skill">React / Next.js</span>
+                    <span contenteditable="true" class="editable skill">Vue.js</span>
+                    <span contenteditable="true" class="editable skill">HTML5 / CSS3</span>
+                    <span contenteditable="true" class="editable skill">Tailwind / SCSS</span>
+                    <span contenteditable="true" class="editable skill">Git / GitHub</span>
+                    <span contenteditable="true" class="editable skill">Webpack / Vite</span>
+                    <span contenteditable="true" class="editable skill">Figma</span>
+                </div>
+            </div>
+
+            <!-- Опыт работы -->
+            <div class="section">
+                <h2 contenteditable="true" class="editable section-title">💼 Опыт работы</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <strong contenteditable="true" class="editable">Яндекс</strong>
+                        <span contenteditable="true" class="editable job-date">2022 — н.в.</span>
+                    </div>
+                    <div contenteditable="true" class="editable job-position">Senior Frontend-разработчик</div>
+                    <ul>
+                        <li contenteditable="true" class="editable">Разработка UI-компонентов для Яндекс.Карт</li>
+                        <li contenteditable="true" class="editable">Оптимизация производительности (ускорение на 40%)</li>
+                        <li contenteditable="true" class="editable">Наставничество 2 джуниоров</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <strong contenteditable="true" class="editable">Тинькофф</strong>
+                        <span contenteditable="true" class="editable job-date">2020 — 2022</span>
+                    </div>
+                    <div contenteditable="true" class="editable job-position">Middle Frontend-разработчик</div>
+                    <ul>
+                        <li contenteditable="true" class="editable">Разработка мобильного приложения на React Native</li>
+                        <li contenteditable="true" class="editable">Интеграция с REST API и WebSocket</li>
+                        <li contenteditable="true" class="editable">Code review и написание тестов (Jest)</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Образование -->
             <div class="section">
-                <h2 contenteditable="true" class="editable section-title">
-                    <span class="section-icon">🎓</span> Образование
-                </h2>
+                <h2 contenteditable="true" class="editable section-title">🎓 Образование</h2>
                 <div class="education">
-                    <div class="edu-item">
-                        <div class="edu-header">
-                            <strong contenteditable="true" class="editable">Университет</strong>
-                            <span contenteditable="true" class="editable edu-date">2025 — 2029</span>
-                        </div>
-                        <div contenteditable="true" class="editable edu-name">СибГУТИ</div>
-                        <div contenteditable="true" class="editable edu-faculty">Кафедра ПОСМС</div>
-                    </div>
+                    <strong contenteditable="true" class="editable">МГУ им. Ломоносова</strong>
+                    <span contenteditable="true" class="editable">Факультет ВМК, магистратура (2018-2023)</span>
                 </div>
             </div>
 
-            <!-- Опыт -->
+            <!-- Языки -->
             <div class="section">
-                <h2 contenteditable="true" class="editable section-title">
-                    <span class="section-icon">💼</span> Опыт
-                </h2>
-                <div class="experience">
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <strong contenteditable="true" class="editable">Учебные проекты</strong>
-                            <span contenteditable="true" class="editable exp-date">2023 — сейчас</span>
-                        </div>
-                        <ul>
-                            <li contenteditable="true" class="editable">Верстал простые страницы, работал со стилями, добавлял интерактивность через JavaScript</li>
-                            <li contenteditable="true" class="editable">Создавал 3D и 2D видеоигры на движке Unity 3D</li>
-                        </ul>
+                <h2 contenteditable="true" class="editable section-title">🌐 Языки</h2>
+                <div class="languages">
+                    <div class="lang">
+                        <span contenteditable="true" class="editable lang-name">Русский</span>
+                        <div class="lang-bar"><div class="lang-level level-100"></div></div>
+                        <span>Родной</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Дополнительно -->
-            <div class="section">
-                <h2 contenteditable="true" class="editable section-title">
-                    <span class="section-icon">⚡</span> Дополнительно
-                </h2>
-                <div class="additional">
-                    <ul>
-                        <li contenteditable="true" class="editable">Умею работать с Visual Studio Code</li>
-                        <li contenteditable="true" class="editable">Знаю основы C, Python, GO</li>
-                        <li contenteditable="true" class="editable">Готов развиваться в программировании и телекоммуникациях</li>
-                    </ul>
+                    <div class="lang">
+                        <span contenteditable="true" class="editable lang-name">Английский</span>
+                        <div class="lang-bar"><div class="lang-level level-85"></div></div>
+                        <span>Upper-Intermediate</span>
+                    </div>
                 </div>
             </div>
         </div>
