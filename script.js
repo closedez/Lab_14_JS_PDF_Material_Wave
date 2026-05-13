@@ -1,31 +1,53 @@
+/* PDF */
+
 document
 .getElementById('downloadBtn')
-.addEventListener('click', () => {
-
-    const element =
-        document.getElementById('resume');
+.addEventListener('click',()=>{
 
     html2pdf()
-        .set({
-            margin:0,
-            filename:'resume.pdf',
+    .from(
+        document.getElementById('resume')
+    )
+    .save();
 
-            image:{
-                type:'jpeg',
-                quality:1
-            },
+});
 
-            html2canvas:{
-                scale:2
-            },
+/* DARK MODE */
 
-            jsPDF:{
-                unit:'mm',
-                format:'a4',
-                orientation:'portrait'
-            }
-        })
-        .from(element)
-        .save();
+const themeBtn =
+document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click',()=>{
+
+    document.body.classList.toggle('dark');
+
+});
+
+/* PHOTO */
+
+const upload =
+document.getElementById('uploadPhoto');
+
+const avatar =
+document.getElementById('avatar');
+
+upload.addEventListener('change',(e)=>{
+
+    const file =
+    e.target.files[0];
+
+    if(!file) return;
+
+    const reader =
+    new FileReader();
+
+    reader.onload = function(ev){
+
+        avatar.innerHTML =
+        `<img src="${ev.target.result}">`;
+
+    }
+
+    reader.readAsDataURL(file);
 
 });

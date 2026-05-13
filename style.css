@@ -1,0 +1,168 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #111827
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+}
+
+/* CARD */
+
+.container{
+    width:100%;
+    max-width:900px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:42px;
+    color:#fff;
+}
+
+/* resume card */
+
+.resume{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    color:#e5e7eb;
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* button */
+
+button{
+    display:block;
+    margin:0 auto 20px auto;
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background: linear-gradient(135deg,#6366f1,#a855f7);
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* sections */
+
+h2{
+    margin-top:25px;
+    margin-bottom:10px;
+
+    color:#a5b4fc;
+
+    font-size:22px;
+}
+
+p{
+    line-height:1.6;
+    color:#e2e8f0;
+}
+
+/* skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+.skills span{
+    background: rgba(255,255,255,0.1);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    color:#e5e7eb;
+
+    transition:0.2s;
+}
+
+.skills span:hover{
+    background:#6366f1;
+    transform:translateY(-2px);
+}
+
+/* jobs */
+
+.job{
+    margin-top:15px;
+    padding:15px;
+
+    border-radius:16px;
+
+    background: rgba(255,255,255,0.06);
+
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.job strong{
+    color:#fff;
+    font-size:18px;
+}
+
+.job ul{
+    margin-top:10px;
+    margin-left:18px;
+}
+
+.job li{
+    margin:6px 0;
+    color:#cbd5e1;
+}
+
+/* editable */
+
+[contenteditable="true"]{
+    outline:none;
+    padding:3px 6px;
+    border-radius:6px;
+}
+
+[contenteditable="true"]:focus{
+    background:rgba(99,102,241,0.2);
+}
