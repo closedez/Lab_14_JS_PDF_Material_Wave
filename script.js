@@ -1,4 +1,4 @@
-// 1. Анимация при изменении текста
+// Анимация при изменении текста
 const editables = document.querySelectorAll('.editable');
 
 editables.forEach(el => {
@@ -9,7 +9,7 @@ editables.forEach(el => {
     });
 });
 
-// 2. Material Wave (ripple)
+// Material Wave (ripple)
 function addRipple(e) {
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
@@ -32,17 +32,27 @@ editables.forEach(el => {
 document.getElementById('downloadBtn').classList.add('ripple');
 document.getElementById('downloadBtn').addEventListener('click', addRipple);
 
-// 3. Скачивание PDF
+// Скачивание PDF
 document.getElementById('downloadBtn').addEventListener('click', () => {
     const element = document.getElementById('resume');
-    html2pdf().from(element).save();
+    html2pdf().set({
+        margin: 0.5,
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    }).from(element).save();
 });
 
-// 4. Сохранение в localStorage
+// Сохранение в localStorage
 function saveData() {
     const data = {};
     editables.forEach((el, i) => {
-        data[i] = el.innerText;
+        if (el.id) {
+            data[el.id] = el.innerText;
+        } else {
+            data[i] = el.innerText;
+        }
     });
     localStorage.setItem('resumeData', JSON.stringify(data));
 }
@@ -52,7 +62,11 @@ function loadData() {
     if (!saved) return;
     const data = JSON.parse(saved);
     editables.forEach((el, i) => {
-        if (data[i]) el.innerText = data[i];
+        if (el.id && data[el.id]) {
+            el.innerText = data[el.id];
+        } else if (data[i]) {
+            el.innerText = data[i];
+        }
     });
 }
 
