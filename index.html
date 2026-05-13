@@ -1,13 +1,29 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="resume" id="resume">
+        <h1 contenteditable="true" class="editable">Иван Иванов</h1>
+        <p contenteditable="true" class="editable">Frontend-разработчик</p>
+        
+        <h2 contenteditable="true" class="editable">Обо мне</h2>
+        <p contenteditable="true" class="editable">Опыт работы 5 лет. Люблю React и TypeScript.</p>
+        
+        <h2 contenteditable="true" class="editable">Навыки</h2>
+        <p contenteditable="true" class="editable">JavaScript, React, HTML, CSS, Git</p>
+        
+        <h2 contenteditable="true" class="editable">Контакты</h2>
+        <p contenteditable="true" class="editable">email@example.com</p>
+    </div>
+    
+    <button id="downloadBtn">Скачать PDF</button>
+
+    <script src="script.js"></script>
+</body>
 </html>
