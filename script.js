@@ -1,65 +1,116 @@
-// Анимация при изменении текста
+/* Editable animation */
+
 const editables = document.querySelectorAll('.editable');
 
 editables.forEach(el => {
+
     el.addEventListener('blur', () => {
-        el.classList.add('edit-animation');
-        setTimeout(() => el.classList.remove('edit-animation'), 300);
+
+        el.animate([
+            { transform: 'scale(1)' },
+            { transform: 'scale(1.02)' },
+            { transform: 'scale(1)' }
+        ], {
+            duration: 300
+        });
+
         saveData();
+
     });
+
 });
 
-// Ripple эффект
-function addRipple(e) {
-    const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    const wave = document.createElement('span');
-    wave.className = 'ripple-wave';
-    const size = Math.max(rect.width, rect.height);
-    wave.style.width = wave.style.height = size + 'px';
-    wave.style.left = (e.clientX - rect.left - size/2) + 'px';
-    wave.style.top = (e.clientY - rect.top - size/2) + 'px';
-    el.style.position = 'relative';
-    el.appendChild(wave);
-    setTimeout(() => wave.remove(), 500);
+/* Ripple effect */
+
+function rippleEffect(e) {
+
+    const button = e.currentTarget;
+
+    const circle = document.createElement('span');
+
+    const diameter = Math.max(
+        button.clientWidth,
+        button.clientHeight
+    );
+
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height =
+        `${diameter}px`;
+
+    circle.style.left =
+        `${e.clientX - button.offsetLeft - radius}px`;
+
+    circle.style.top =
+        `${e.clientY - button.offsetTop - radius}px`;
+
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+
+    if (ripple) {
+        ripple.remove();
+    }
+
+    button.appendChild(circle);
+
 }
 
-editables.forEach(el => {
-    el.classList.add('ripple');
-    el.addEventListener('click', addRipple);
+document.querySelectorAll('.download-btn, .skill')
+.forEach(el => {
+    el.addEventListener('click', rippleEffect);
 });
 
-document.getElementById('downloadBtn').classList.add('ripple');
-document.getElementById('downloadBtn').addEventListener('click', addRipple);
+/* Save data */
 
-// PDF
-document.getElementById('downloadBtn').addEventListener('click', () => {
-    const element = document.getElementById('resume');
-    html2pdf().set({
-        margin: 0.5,
-        filename: 'resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    }).from(element).save();
-});
-
-// LocalStorage
 function saveData() {
-    const data = {};
-    editables.forEach((el, i) => {
-        data[i] = el.innerText;
-    });
-    localStorage.setItem('resumeData', JSON.stringify(data));
+
+    localStorage.setItem(
+        'resumeData',
+        document.getElementById('resume').innerHTML
+    );
+
 }
 
-function loadData() {
+/* Load data */
+
+window.addEventListener('DOMContentLoaded', () => {
+
     const saved = localStorage.getItem('resumeData');
-    if (!saved) return;
-    const data = JSON.parse(saved);
-    editables.forEach((el, i) => {
-        if (data[i]) el.innerText = data[i];
-    });
-}
 
-loadData();
+    if (saved) {
+        document.getElementById('resume').innerHTML = saved;
+    }
+
+});
+
+/* PDF */
+
+document.getElementById('downloadBtn')
+.addEventListener('click', () => {
+
+    const element = document.getElementById('resume');
+
+    const opt = {
+        margin: 0,
+        filename: 'resume.pdf',
+        image: {
+            type: 'jpeg',
+            quality: 1
+        },
+        html2canvas: {
+            scale: 2
+        },
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+        }
+    };
+
+    html2pdf()
+        .set(opt)
+        .from(element)
+        .save();
+
+});
