@@ -2,273 +2,107 @@
 <html lang="ru">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Premium Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Resume | Редактируемое резюме</title>
 
     <!-- FONT -->
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-
     <link rel="stylesheet" href="style.css">
 
     <!-- PDF -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
 </head>
 
 <body>
 
 <div class="page">
-
-    <!-- TOOLBAR -->
-
     <div class="toolbar">
-
-        <button
-            class="btn download-btn"
-            id="downloadBtn"
-        >
-            Скачать PDF
-        </button>
-
-        <button
-            class="btn theme-btn"
-            id="themeBtn"
-        >
-            Dark Mode
-        </button>
-
+        <button class="btn download-btn" id="downloadBtn">📄 Скачать PDF</button>
+        <button class="btn theme-btn" id="themeBtn">🌙 Dark Mode</button>
+        <button class="btn reset-btn" id="resetBtn">⟳ Сбросить все</button>
     </div>
 
-    <!-- RESUME -->
-
-    <div
-        class="resume"
-        id="resume"
-    >
-
+    <div class="resume" id="resume">
         <!-- SIDEBAR -->
-
         <aside class="sidebar">
-
-            <!-- AVATAR -->
-
             <div class="avatar-wrap">
-
-                <div
-                    class="avatar"
-                    id="avatar"
-                >
-                    ИИ
-                </div>
-
+                <div class="avatar" id="avatar">ИИ</div>
             </div>
 
-            <!-- PHOTO -->
-
             <label class="upload-label">
-
-                <input
-                    type="file"
-                    id="uploadPhoto"
-                    accept="image/*"
-                >
-
-                <div class="upload-btn">
-                    Загрузить фото
-                </div>
-
+                <input type="file" id="uploadPhoto" accept="image/*">
+                <div class="upload-btn">📸 Загрузить фото</div>
             </label>
 
-            <!-- CONTACTS -->
-
             <section class="sidebar-block">
-
-                <h3>
-                    КОНТАКТЫ
-                </h3>
-
-                <div class="contact">
-                    📞 +7 905 931 08 19
-                </div>
-
-                <div class="contact">
-                    ✉ addictedsonz@gmail.com
-                </div>
-
-                <div class="contact">
-                    📍 Новосибирск
-                </div>
-
+                <h3 contenteditable="true">КОНТАКТЫ</h3>
+                <div class="contact" contenteditable="true">📞 +7 905 931 08 19</div>
+                <div class="contact" contenteditable="true">✉ addictedsonz@gmail.com</div>
+                <div class="contact" contenteditable="true">📍 Новосибирск</div>
             </section>
 
-            <!-- SKILLS -->
-
             <section class="sidebar-block">
-
-                <h3>
-                    НАВЫКИ
-                </h3>
-
-                <div class="skills">
-
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Next.js</span>
-                    <span>CSS</span>
-                    <span>Tailwind</span>
-                    <span>Figma</span>
-
+                <h3 contenteditable="true">НАВЫКИ</h3>
+                <div class="skills" id="skillsContainer">
+                    <span class="skill-item" contenteditable="true">React</span>
+                    <span class="skill-item" contenteditable="true">TypeScript</span>
+                    <span class="skill-item" contenteditable="true">Next.js</span>
+                    <span class="skill-item" contenteditable="true">CSS</span>
+                    <span class="skill-item" contenteditable="true">Tailwind</span>
+                    <span class="skill-item" contenteditable="true">Figma</span>
                 </div>
-
             </section>
 
-            <!-- LANGUAGES -->
-
             <section class="sidebar-block">
-
-                <h3>
-                    ЯЗЫКИ
-                </h3>
-
+                <h3 contenteditable="true">ЯЗЫКИ</h3>
                 <div class="lang">
-
-                    <div class="lang-title">
-                        Русский
-                    </div>
-
-                    <div class="lang-bar">
-                        <div
-                            class="lang-fill"
-                            style="width:100%"
-                        ></div>
-                    </div>
-
+                    <div class="lang-title" contenteditable="true">Русский</div>
+                    <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
                 </div>
-
                 <div class="lang">
-
-                    <div class="lang-title">
-                        Английский
-                    </div>
-
-                    <div class="lang-bar">
-                        <div
-                            class="lang-fill"
-                            style="width:80%"
-                        ></div>
-                    </div>
-
+                    <div class="lang-title" contenteditable="true">Английский</div>
+                    <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
                 </div>
-
             </section>
-
         </aside>
 
         <!-- CONTENT -->
-
         <main class="content">
-
-            <!-- HERO -->
-
             <header class="hero">
-
-                <h1 contenteditable="true">
-                    Дмитрий Шиф
-                </h1>
-
-                <p contenteditable="true">
-                    Frontend-разработчик
-                </p>
-
+                <h1 contenteditable="true">Дмитрий Шиф</h1>
+                <p contenteditable="true">Frontend-разработчик</p>
             </header>
 
-            <!-- ABOUT -->
-
             <section class="section">
-
-                <h2>
-                    О СЕБЕ
-                </h2>
-
+                <h2 contenteditable="true">О СЕБЕ</h2>
                 <div class="card">
-
-                    <p contenteditable="true">
-
-                        Опытный frontend-разработчик
-                        с опытом React и TypeScript.
-
-                        Люблю красивый UI,
-                        анимации и сложные интерфейсы.
-
-                    </p>
-
+                    <p contenteditable="true">Опытный frontend-разработчик с опытом React и TypeScript. Люблю красивый UI, анимации и сложные интерфейсы.</p>
                 </div>
-
             </section>
-
-            <!-- EXPERIENCE -->
 
             <section class="section">
-
-                <h2>
-                    ОПЫТ
-                </h2>
-
+                <h2 contenteditable="true">ОПЫТ РАБОТЫ</h2>
                 <div class="card work">
-
-                    <h4>
-                        Яндекс
-                    </h4>
-
-                    <span>
-                        Senior Frontend Developer
-                    </span>
-
-                    <small>
-                        2022 — н.в.
-                    </small>
-
+                    <h4 contenteditable="true">Яндекс</h4>
+                    <span contenteditable="true">Senior Frontend Developer</span>
+                    <small contenteditable="true">2022 — н.в.</small>
                     <ul>
-
-                        <li>
-                            Разработка React приложений
-                        </li>
-
-                        <li>
-                            Оптимизация производительности
-                        </li>
-
-                        <li>
-                            Наставничество команды
-                        </li>
-
+                        <li contenteditable="true">Разработка React приложений</li>
+                        <li contenteditable="true">Оптимизация производительности</li>
+                        <li contenteditable="true">Наставничество команды</li>
                     </ul>
-
                 </div>
-
             </section>
-
         </main>
-
     </div>
-
 </div>
 
-<script src="script.js"></script>
+<div class="save-status" id="saveStatus">💾 Данные сохранены</div>
 
+<script src="script.js"></script>
 </body>
+
 </html>
